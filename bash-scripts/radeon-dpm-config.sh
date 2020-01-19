@@ -10,8 +10,8 @@ wmess="Welcome to Dynamic Power Management Menu"
 mess1="This Script let you change the power consumption and performance"
 del="-------------------------------------------------------"
 selop="selected"
-powermenuentrys="battery balanced performance show_config test"
-testmenuentrys="low high auto show_config"
+powermenuentrys="battery balanced performance show_config test exit"
+testmenuentrys="low high auto show_config exit"
 #---------Functions-----------------
 
 continueScript()
@@ -63,6 +63,10 @@ powermenu()
  test)			echo "$selop $option"
 			echo "test the card by force into performance mode"
 			testmenu
+			;;
+exit)			echo "$selop $option"
+			echo "exit - changes will be saved"
+			exit 0
 			;; 
  *)			echo "invalid option"
 			continueScript
@@ -92,7 +96,11 @@ testmenu()
  show_config)		echo "$selop $option"
 			sudo cat /sys/class/drm/card0/device/power_dpm_force_performance_level
 			;;
- *)			echo "invalid option"
+exit)			echo "$selop $option"
+			echo "exit - changes will be saved"
+			exit 0
+			;;  
+*)			echo "invalid option"
 			continueScript
 			;;
 			
