@@ -1,2 +1,3 @@
 token-shellscript
 bash-scripts/Pacman-sync/Logs/*
+!bash-scripts/Pacman-sync/Logs/.sync-packagelist
