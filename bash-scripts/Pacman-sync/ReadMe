@@ -1,0 +1,3 @@
+This one lists all your next updates from the arch repos via pacman.
+It uses only pacman commands and print the output into the logs folder.
+It does not perform any package update on your system, but only fetches update information for the listing
