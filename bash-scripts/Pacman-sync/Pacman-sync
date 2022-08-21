@@ -1,37 +1,29 @@
 #!/bin/bash
 
-#TODO kein neues file bei einem bestehenden anlegen
-#TODO if fertig stellen
-
 filename=sync-packagelist
 now="$(date +'-%d-%m-%Y_%H:%M:%S')"
 directory=$(cd `dirname $0` && pwd)
 
-echo "Welcome, do you want to see upgradeable packages ?"
+echo "Welcome, do you want to see your upgradeable packages? - confirm with 'y' "
 read exe
 if [ "$exe" = n ]; then
 	exit 0
 fi
 
-#else run program
-#echo "ls -la"
-#ls -la
-
+echo "pacman pulls new updates from remote"
 sudo pacman -Sy
 cd $directory/Logs
 
 if [ ! -f $filename$now ]; then
 	touch $filename$now
-	echo "$filename$now in $directory/Logs erstellt" 
+	echo "$filename$now in $directory/Logs created" 
 else
-	echo "Fehler"
+	echo "Error"
 fi
 
-#echo "sudo pacman -S" >> $filename
-echo "Packagename CurrVersion -> UpgradeVersion" > $filename$now
+echo "Log generated $now" > $filename$now
+echo "Packagename CurrentVersion -> UpgradeVersion" > $filename$now
 echo "--------------------------------------" >> $filename$now
 sudo pacman -Qu >> $filename$now
-#n
-#echo "exit 0"
 
 
