@@ -26,3 +26,5 @@ Before using the install scripts, ensure that:
 - You have a working Arch Linux installation.
 - You have `git` installed on your system.
 
+## Alernative Software
+![Static Badge](https://img.shields.io/badge/Status-WIP-yellow?link=%20https%3A%2F%2Fgithub.com%2Fmarazmista%2Fradeon-profile)
