@@ -28,4 +28,4 @@ Before using the install scripts, ensure that:
 
 ## Alernative Software
 radeon-dpm-config.sh
-![Static Badge](https://img.shields.io/badge/Status-RadeonProfile-green?link=%20https%3A%2F%2Fgithub.com%2Fmarazmista%2Fradeon-profile)
+![Static Badge](https://img.shields.io/badge/Alternative-RadeonProfile-green?link=%20https%3A%2F%2Fgithub.com%2Fmarazmista%2Fradeon-profile)
