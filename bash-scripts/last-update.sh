@@ -1,8 +1,26 @@
 #!/bin/bash
 
-echo "=== Last System Update ==="
-
 PACMAN_LOG="/var/log/pacman.log"
+echo "--- Pacman and Yay Info ---"
+echo "                          "
+echo "=== Last System Sync ==="
+
+get_last_sync() {
+    if [ -f "$PACMAN_LOG" ]; then
+        last_sync=$(grep -a "synchronizing package lists" "$PACMAN_LOG" | tail -n 1 | cut -d']' -f1 | tr -d '[')
+        if [ -n "$last_sync" ]; then
+            date -d "${last_sync}" +"%Y-%m-%d %H:%M:%S"
+        else
+            echo "No Entry"
+        fi
+    fi
+}
+
+last_repo_sync=$(get_last_sync)
+echo "Pacman(repo): $last_repo_sync"
+
+echo "                          "
+echo "=== Last System Update ==="
 
 get_last_pacman_update() {
     if [ -f "$PACMAN_LOG" ]; then
@@ -31,4 +49,5 @@ if command -v yay &>/dev/null; then
 else
     echo "Yay: Not installed."
 fi
+echo "                          "
 
